@@ -43,7 +43,7 @@ const Header = ({ handleTheme, darkMode }) => {
           variant="h6"
           className={classes.title}
         >
-          Space X
+          SpaceX
         </Typography>
 
         <IconButton
