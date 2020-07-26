@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import Brightness4Icon from '@material-ui/icons/Brightness4';
 import Brightness7Icon from '@material-ui/icons/Brightness7';
+import GitHubIcon from '@material-ui/icons/GitHub';
 import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
@@ -20,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
-    textAlign: 'center',
+    textAlign: 'left',
     textDecoration: 'none',
     color: theme.palette.primary,
     cursor: 'pointer',
@@ -45,6 +46,15 @@ const Header = ({ handleTheme, darkMode }) => {
         >
           SpaceX
         </Typography>
+        <IconButton
+          href={'https://github.com/Guillecaba/demo-spacex-graphql'}
+          edge="end"
+          className={classes.menuButton}
+          color="primary"
+          aria-label="menu"
+        >
+          <GitHubIcon />
+        </IconButton>
 
         <IconButton
           onClick={handleTheme}
