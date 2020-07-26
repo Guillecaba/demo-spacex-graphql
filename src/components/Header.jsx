@@ -8,6 +8,7 @@ import Brightness4Icon from '@material-ui/icons/Brightness4';
 import Brightness7Icon from '@material-ui/icons/Brightness7';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import { useHistory } from 'react-router-dom';
+import HomeIcon from '@material-ui/icons/Home';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,7 +25,6 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'left',
     textDecoration: 'none',
     color: theme.palette.primary,
-    cursor: 'pointer',
   },
 }));
 
@@ -35,19 +35,22 @@ const Header = ({ handleTheme, darkMode }) => {
   return (
     <AppBar color="default" position="static">
       <Toolbar>
-
-        <Typography
-          color="primary"
+        <IconButton
           onClick={() => {
             history.push('/');
           }}
-          variant="h6"
-          className={classes.title}
+          edge="start"
+          className={classes.menuButton}
+          color="primary"
         >
+          <HomeIcon />
+        </IconButton>
+
+        <Typography color="primary" variant="h6" className={classes.title}>
           SpaceX
         </Typography>
         <IconButton
-          href={'https://github.com/Guillecaba/demo-spacex-graphql'}
+          href="https://github.com/Guillecaba/demo-spacex-graphql"
           edge="end"
           className={classes.menuButton}
           color="primary"

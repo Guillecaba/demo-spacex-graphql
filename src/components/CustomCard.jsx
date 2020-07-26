@@ -10,7 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 import CardHeader from '@material-ui/core/CardHeader';
 import moment from 'moment';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles({
   root: {
@@ -23,29 +23,52 @@ const useStyles = makeStyles({
 });
 
 const CustomCard = ({
-  id, image, missionName, avatar, date, rocket, launchSite,
+  id,
+  image,
+  missionName,
+  avatar,
+  date,
+  rocket,
+  launchSite,
 }) => {
   const classes = useStyles();
+  const history = useHistory();
   return (
-
-    <Card className={classes.root}>
+    <Card
+      onClick={() => {
+        history.push(`/launch/${id}'`);
+      }}
+      className={classes.root}
+    >
       <CardHeader
         avatar={(
-          <Avatar src={avatar || 'https://farm1.staticflickr.com/658/32394688795_55a9873ea7_o.jpg'} aria-label="recipe" />
+          <Avatar
+            src={
+              avatar
+              || 'https://farm1.staticflickr.com/658/32394688795_55a9873ea7_o.jpg'
+            }
+            aria-label="recipe"
+          />
         )}
-
-        title={launchSite.length >= 20 ? `${launchSite.slice(0, 20)}...` : launchSite}
+        title={
+          launchSite.length >= 20 ? `${launchSite.slice(0, 20)}...` : launchSite
+        }
         subheader={moment(date).format('MMMM D YYYY, h:mm a')}
       />
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image={image || 'https://farm1.staticflickr.com/658/32394688795_55a9873ea7_o.jpg'}
+          image={
+            image
+            || 'https://farm1.staticflickr.com/658/32394688795_55a9873ea7_o.jpg'
+          }
           title="Contemplative Reptile"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            { missionName.length >= 20 ? `${missionName.slice(0, 20)}...` : missionName}
+            {missionName.length >= 20
+              ? `${missionName.slice(0, 20)}...`
+              : missionName}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
             {rocket}
@@ -53,15 +76,17 @@ const CustomCard = ({
         </CardContent>
 
         <CardActions>
-
-          <Button component={Link} to={`/launch/${id}`} size="small" color="primary">
+          <Button
+            component={Link}
+            to={`/launch/${id}`}
+            size="small"
+            color="primary"
+          >
             Show More
           </Button>
-
         </CardActions>
       </CardActionArea>
     </Card>
-
   );
 };
 
