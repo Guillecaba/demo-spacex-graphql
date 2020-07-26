@@ -25,5 +25,12 @@ module.exports = {
     'no-console': 1,
     'no-case-declarations': 0,
     'import/prefer-default-export': 0,
+    'no-restricted-syntax': 0,
+    'react/jsx-uses-react': 'error',
+    'react/jsx-uses-vars': 'error',
+    'react-hooks/rules-of-hooks': 0,
+    'react-hooks/exhaustive-deps': 0,
+    'linebreak-style': 0,
+    'react/prop-types': 0,
   },
 };
