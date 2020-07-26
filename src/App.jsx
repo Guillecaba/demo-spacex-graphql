@@ -3,7 +3,6 @@ import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Header from './components/Header';
-/* import { darkTheme, lightTheme } from './theme'; */
 import ScrollIntoView from './components/ScrollIntoView';
 import PastLaunches from './containers/PastLaunches';
 import LaunchDetail from './containers/LaunchDetail';
@@ -78,7 +77,8 @@ const App = () => {
           <Paper style={{ minHeight: '95vh', width: '100%' }}>
             <Switch>
               <Route exact path="/launch/:id" component={LaunchDetail} />
-              <Route exact path="/" component={PastLaunches} />
+              <Route exact path="/home" component={PastLaunches} />
+              <Route path="/" component={PastLaunches} />
             </Switch>
           </Paper>
         </ScrollIntoView>
