@@ -19,6 +19,11 @@ const useStyles = makeStyles((theme) => ({
   },
   menuButton: {
     marginRight: theme.spacing(2),
+    
+  },
+  iconButton: {
+    
+    marginLeft: theme.spacing(2),
   },
   title: {
     flexGrow: 1,
@@ -51,8 +56,8 @@ const Header = ({ handleTheme, darkMode }) => {
         </Typography>
         <IconButton
           href="https://github.com/Guillecaba/demo-spacex-graphql"
-          edge="end"
-          className={classes.menuButton}
+          edge="start"
+          className={classes.iconButton}
           color="primary"
           aria-label="menu"
         >
@@ -61,8 +66,8 @@ const Header = ({ handleTheme, darkMode }) => {
 
         <IconButton
           onClick={handleTheme}
-          edge="end"
-          className={classes.menuButton}
+          edge="start"
+          className={classes.iconButton}
           color="inherit"
           aria-label="menu"
         >
