@@ -3,7 +3,6 @@ import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
-import Fade from '@material-ui/core/Fade';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Pagination from '../components/Pagination';
 import { getLaunchesPast } from '../api';
@@ -100,24 +99,19 @@ const PastLaunches = () => {
                 {lauches[actualPage - 1]
                   && lauches[actualPage - 1].map((launch) => {
                     return (
-                      <Grid item xs={12} md={4}>
-                        <Fade in timeout={2000}>
-                          <CustomCard
-                            key={launch.id}
-                            id={launch.id}
-                            avatar={launch.links.mission_patch_small}
-                            image={
-                              launch.links && launch.links.flickr_images[0]
-                            }
-                            missionName={launch.mission_name}
-                            date={launch.launch_date_utc}
-                            launchSite={
-                              launch.launch_site
-                              && launch.launch_site.site_name_long
-                            }
-                            rocket={launch.rocket && launch.rocket.rocket_name}
-                          />
-                        </Fade>
+                      <Grid key={launch.id} item xs={12} md={4}>
+                        <CustomCard
+                          id={launch.id}
+                          avatar={launch.links.mission_patch_small}
+                          image={launch.links && launch.links.flickr_images[0]}
+                          missionName={launch.mission_name}
+                          date={launch.launch_date_utc}
+                          launchSite={
+                            launch.launch_site
+                            && launch.launch_site.site_name_long
+                          }
+                          rocket={launch.rocket && launch.rocket.rocket_name}
+                        />
                       </Grid>
                     );
                   })}
