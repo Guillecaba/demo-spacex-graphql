@@ -84,7 +84,7 @@ const PastLaunches = () => {
       {!loading ? (
         <div className={classes.root}>
           <Container className={classes.outerContainer} fixed>
-            <Grid classes={{ root: classes.banner }} spacing={6}>
+            <Grid classes={{ root: classes.banner }}>
               <Grid item xs={12} md={6}>
                 <Typography
                   color="secondary"
@@ -98,28 +98,29 @@ const PastLaunches = () => {
             <div className={classes.container}>
               <Grid container spacing={3}>
                 {lauches[actualPage - 1]
-                && lauches[actualPage - 1].map((launch) => {
-                  return (
-                    <Grid item xs={12} md={4}>
-                      <Fade in timeout={2000}>
-                        <CustomCard
-                          id={launch.id}
-                          avatar={launch.links.mission_patch_small}
-                          image={
+                  && lauches[actualPage - 1].map((launch) => {
+                    return (
+                      <Grid item xs={12} md={4}>
+                        <Fade in timeout={2000}>
+                          <CustomCard
+                            key={launch.id}
+                            id={launch.id}
+                            avatar={launch.links.mission_patch_small}
+                            image={
                               launch.links && launch.links.flickr_images[0]
                             }
-                          missionName={launch.mission_name}
-                          date={launch.launch_date_utc}
-                          launchSite={
+                            missionName={launch.mission_name}
+                            date={launch.launch_date_utc}
+                            launchSite={
                               launch.launch_site
                               && launch.launch_site.site_name_long
                             }
-                          rocket={launch.rocket && launch.rocket.rocket_name}
-                        />
-                      </Fade>
-                    </Grid>
-                  );
-                })}
+                            rocket={launch.rocket && launch.rocket.rocket_name}
+                          />
+                        </Fade>
+                      </Grid>
+                    );
+                  })}
               </Grid>
             </div>
             <div className={classes.paginationContainer}>
